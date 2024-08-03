@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ARRAY
+from sqlalchemy import Column, Integer, String
 from database import Base
 
 class User(Base):
@@ -9,6 +9,13 @@ class User(Base):
     age = Column(Integer)
     gender = Column(String)
     email = Column(String, unique=True, index=True)
-    city = Column(String, index=True)
-    interests = Column(ARRAY(String))
+    city = Column(String)
+    interests = Column(String) 
 
+    @property
+    def interests_list(self):
+        return self.interests.split(",") if self.interests else []
+
+    @interests_list.setter
+    def interests_list(self, value):
+        self.interests = ",".join(value) if value else ""
