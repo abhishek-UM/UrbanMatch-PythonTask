@@ -54,5 +54,5 @@ Include a brief report explaining your approach and any assumptions made.
 - SQLAlchemy
 - SQLite
 
-# The proposed solution in present in the Proposed_Solution.MD
+# The proposed solution is present in the Proposed_Solution.MD
 
