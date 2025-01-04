@@ -1,0 +1,74 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+.venv/
+env/
+ENV/
+
+# FastAPI/uvicorn logs
+*.log
+*.out
+*.err
+
+# Environment variables
+.env
+.env.*.local
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Coverage reports
+.coverage
+coverage.xml
+htmlcov/
+
+# pytest cache
+.pytest_cache/
+.cache/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Docker files
+*.pid
+docker-compose.override.yml
+
+# SQL database files
+*.sqlite3
+*.db
+
+# Static/media files
+staticfiles/
+mediafiles/
+
+# Node.js (if using for frontend within FastAPI project)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Pipenv/Poetry files
+Pipfile.lock
+poetry.lock
+
+# Additional Flask or Django config (in case of extensions)
+instance/
+.local_settings.py
+
+# Miscellaneous
+*.DS_Store
+*.mo
+*.pot
