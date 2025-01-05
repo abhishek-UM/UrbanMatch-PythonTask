@@ -1,0 +1,8 @@
+fastapi
+sqlalchemy
+uvicorn
+databases
+geopy
+pydantic
+pydantic[email]
+

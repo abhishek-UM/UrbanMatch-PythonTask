@@ -1,0 +1,637 @@
+[
+    {
+        "id": 1,
+        "email": "user1@example.com",
+        "age": 34,
+        "city": "Chicago",
+        "latitude": -8.938253951768402,
+        "longitude": 169.5155598534227,
+        "interests": [
+            "music"
+        ]
+    },
+    {
+        "id": 2,
+        "email": "user2@example.com",
+        "age": 20,
+        "city": "Chicago",
+        "latitude": -21.998551862688558,
+        "longitude": -57.99493964085448,
+        "interests": [
+            "photography",
+            "music",
+            "reading"
+        ]
+    },
+    {
+        "id": 3,
+        "email": "user3@example.com",
+        "age": 50,
+        "city": "Houston",
+        "latitude": -72.91182416711094,
+        "longitude": 130.87756201032983,
+        "interests": [
+            "gaming",
+            "cooking",
+            "reading",
+            "photography",
+            "music"
+        ]
+    },
+    {
+        "id": 4,
+        "email": "user4@example.com",
+        "age": 31,
+        "city": "Los Angeles",
+        "latitude": -64.81866248948127,
+        "longitude": -69.8437067216783,
+        "interests": [
+            "movies"
+        ]
+    },
+    {
+        "id": 5,
+        "email": "user5@example.com",
+        "age": 34,
+        "city": "Chicago",
+        "latitude": 47.11224632987796,
+        "longitude": 53.64576637852841,
+        "interests": [
+            "traveling",
+            "photography",
+            "art"
+        ]
+    },
+    {
+        "id": 6,
+        "email": "user6@example.com",
+        "age": 19,
+        "city": "New York",
+        "latitude": 71.00263080734328,
+        "longitude": 118.22855370877085,
+        "interests": [
+            "sports",
+            "photography"
+        ]
+    },
+    {
+        "id": 7,
+        "email": "user7@example.com",
+        "age": 47,
+        "city": "Houston",
+        "latitude": -76.84824967467102,
+        "longitude": -157.74833617904366,
+        "interests": [
+            "art",
+            "sports"
+        ]
+    },
+    {
+        "id": 8,
+        "email": "user8@example.com",
+        "age": 46,
+        "city": "Chicago",
+        "latitude": 74.79032635225573,
+        "longitude": -12.367754819178998,
+        "interests": [
+            "coding",
+            "movies",
+            "photography",
+            "music"
+        ]
+    },
+    {
+        "id": 9,
+        "email": "user9@example.com",
+        "age": 19,
+        "city": "Phoenix",
+        "latitude": 65.39832171209432,
+        "longitude": -96.89038911962722,
+        "interests": [
+            "coding",
+            "gaming"
+        ]
+    },
+    {
+        "id": 10,
+        "email": "user10@example.com",
+        "age": 41,
+        "city": "Los Angeles",
+        "latitude": 48.01143908126923,
+        "longitude": 45.46924527509,
+        "interests": [
+            "cooking"
+        ]
+    },
+    {
+        "id": 11,
+        "email": "user11@example.com",
+        "age": 36,
+        "city": "Phoenix",
+        "latitude": -72.29179210239344,
+        "longitude": -55.12938586733806,
+        "interests": [
+            "cooking",
+            "reading"
+        ]
+    },
+    {
+        "id": 12,
+        "email": "user12@example.com",
+        "age": 36,
+        "city": "Chicago",
+        "latitude": -5.857935225891097,
+        "longitude": -63.06538668750126,
+        "interests": [
+            "movies",
+            "reading",
+            "art",
+            "photography"
+        ]
+    },
+    {
+        "id": 13,
+        "email": "user13@example.com",
+        "age": 46,
+        "city": "Chicago",
+        "latitude": -16.2848180455493,
+        "longitude": -73.61991132773603,
+        "interests": [
+            "art",
+            "traveling"
+        ]
+    },
+    {
+        "id": 14,
+        "email": "user14@example.com",
+        "age": 18,
+        "city": "Houston",
+        "latitude": 24.504345175073425,
+        "longitude": 1.0638629999226623,
+        "interests": [
+            "photography",
+            "cooking",
+            "sports"
+        ]
+    },
+    {
+        "id": 15,
+        "email": "user15@example.com",
+        "age": 34,
+        "city": "Los Angeles",
+        "latitude": 67.50052348980282,
+        "longitude": -140.1856881087762,
+        "interests": [
+            "movies"
+        ]
+    },
+    {
+        "id": 16,
+        "email": "user16@example.com",
+        "age": 30,
+        "city": "Houston",
+        "latitude": 70.62994357601644,
+        "longitude": -33.9311240618716,
+        "interests": [
+            "photography",
+            "traveling",
+            "cooking",
+            "reading"
+        ]
+    },
+    {
+        "id": 17,
+        "email": "user17@example.com",
+        "age": 45,
+        "city": "Chicago",
+        "latitude": -28.488929050276766,
+        "longitude": -26.854241020627484,
+        "interests": [
+            "coding",
+            "sports",
+            "gaming"
+        ]
+    },
+    {
+        "id": 18,
+        "email": "user18@example.com",
+        "age": 27,
+        "city": "Houston",
+        "latitude": 33.610727454087495,
+        "longitude": 18.81482427071171,
+        "interests": [
+            "photography",
+            "traveling"
+        ]
+    },
+    {
+        "id": 19,
+        "email": "user19@example.com",
+        "age": 34,
+        "city": "Houston",
+        "latitude": -68.41792696878676,
+        "longitude": 40.65697438859809,
+        "interests": [
+            "traveling"
+        ]
+    },
+    {
+        "id": 20,
+        "email": "user20@example.com",
+        "age": 24,
+        "city": "Houston",
+        "latitude": 18.735924643849884,
+        "longitude": -103.68767067134463,
+        "interests": [
+            "gaming",
+            "art",
+            "traveling"
+        ]
+    },
+    {
+        "id": 21,
+        "email": "user21@example.com",
+        "age": 21,
+        "city": "New York",
+        "latitude": -41.203570218479996,
+        "longitude": 147.82299790478186,
+        "interests": [
+            "reading",
+            "cooking",
+            "traveling"
+        ]
+    },
+    {
+        "id": 22,
+        "email": "user22@example.com",
+        "age": 50,
+        "city": "New York",
+        "latitude": 81.28738509312419,
+        "longitude": 173.750760428008,
+        "interests": [
+            "reading",
+            "coding",
+            "cooking",
+            "photography"
+        ]
+    },
+    {
+        "id": 23,
+        "email": "user23@example.com",
+        "age": 24,
+        "city": "New York",
+        "latitude": -21.681639398402737,
+        "longitude": 56.192148476201,
+        "interests": [
+            "sports",
+            "movies",
+            "traveling",
+            "coding",
+            "music"
+        ]
+    },
+    {
+        "id": 24,
+        "email": "user24@example.com",
+        "age": 35,
+        "city": "Los Angeles",
+        "latitude": 2.735950187793577,
+        "longitude": -165.37114481396603,
+        "interests": [
+            "coding",
+            "traveling",
+            "sports"
+        ]
+    },
+    {
+        "id": 25,
+        "email": "user25@example.com",
+        "age": 34,
+        "city": "New York",
+        "latitude": -24.57585654248996,
+        "longitude": 16.57145203726222,
+        "interests": [
+            "movies",
+            "coding",
+            "gaming"
+        ]
+    },
+    {
+        "id": 26,
+        "email": "user26@example.com",
+        "age": 39,
+        "city": "Chicago",
+        "latitude": 3.1588207678372413,
+        "longitude": -93.71184895715994,
+        "interests": [
+            "coding",
+            "music",
+            "traveling",
+            "reading",
+            "photography"
+        ]
+    },
+    {
+        "id": 27,
+        "email": "user27@example.com",
+        "age": 32,
+        "city": "Los Angeles",
+        "latitude": -10.727021688065918,
+        "longitude": 24.807702016113836,
+        "interests": [
+            "sports",
+            "music",
+            "traveling",
+            "reading",
+            "coding"
+        ]
+    },
+    {
+        "id": 28,
+        "email": "user28@example.com",
+        "age": 48,
+        "city": "Chicago",
+        "latitude": 72.61372848683067,
+        "longitude": 38.35638205033467,
+        "interests": [
+            "music",
+            "traveling"
+        ]
+    },
+    {
+        "id": 29,
+        "email": "user29@example.com",
+        "age": 28,
+        "city": "Los Angeles",
+        "latitude": -49.976585682724945,
+        "longitude": -88.40157443159492,
+        "interests": [
+            "movies",
+            "coding",
+            "reading",
+            "cooking"
+        ]
+    },
+    {
+        "id": 30,
+        "email": "user30@example.com",
+        "age": 40,
+        "city": "Los Angeles",
+        "latitude": -71.28412711212815,
+        "longitude": 163.47292302215027,
+        "interests": [
+            "gaming",
+            "reading"
+        ]
+    },
+    {
+        "id": 31,
+        "email": "user31@example.com",
+        "age": 34,
+        "city": "Los Angeles",
+        "latitude": -0.9880343238885558,
+        "longitude": 103.61972423067118,
+        "interests": [
+            "reading"
+        ]
+    },
+    {
+        "id": 32,
+        "email": "user32@example.com",
+        "age": 50,
+        "city": "Chicago",
+        "latitude": -75.42966852890183,
+        "longitude": -14.801119103178848,
+        "interests": [
+            "cooking"
+        ]
+    },
+    {
+        "id": 33,
+        "email": "user33@example.com",
+        "age": 50,
+        "city": "Phoenix",
+        "latitude": 32.09617515020345,
+        "longitude": 177.10053618641308,
+        "interests": [
+            "traveling"
+        ]
+    },
+    {
+        "id": 34,
+        "email": "user34@example.com",
+        "age": 28,
+        "city": "New York",
+        "latitude": -25.537632208165405,
+        "longitude": 80.45241453218159,
+        "interests": [
+            "sports"
+        ]
+    },
+    {
+        "id": 35,
+        "email": "user35@example.com",
+        "age": 45,
+        "city": "Phoenix",
+        "latitude": -0.047071864959406184,
+        "longitude": 167.06844555209193,
+        "interests": [
+            "cooking",
+            "reading",
+            "coding",
+            "sports",
+            "traveling"
+        ]
+    },
+    {
+        "id": 36,
+        "email": "user36@example.com",
+        "age": 47,
+        "city": "Chicago",
+        "latitude": 18.449664781187863,
+        "longitude": 5.5861265661746415,
+        "interests": [
+            "coding",
+            "music",
+            "art",
+            "photography"
+        ]
+    },
+    {
+        "id": 37,
+        "email": "user37@example.com",
+        "age": 39,
+        "city": "Los Angeles",
+        "latitude": 15.921991203541609,
+        "longitude": -83.12877041512355,
+        "interests": [
+            "gaming",
+            "cooking",
+            "traveling"
+        ]
+    },
+    {
+        "id": 38,
+        "email": "user38@example.com",
+        "age": 35,
+        "city": "New York",
+        "latitude": 36.245254116387954,
+        "longitude": 24.520665472967295,
+        "interests": [
+            "cooking",
+            "music"
+        ]
+    },
+    {
+        "id": 39,
+        "email": "user39@example.com",
+        "age": 34,
+        "city": "Los Angeles",
+        "latitude": -78.17869787924394,
+        "longitude": 102.41173913720729,
+        "interests": [
+            "reading"
+        ]
+    },
+    {
+        "id": 40,
+        "email": "user40@example.com",
+        "age": 50,
+        "city": "Phoenix",
+        "latitude": -13.540781260896964,
+        "longitude": -4.671048286858138,
+        "interests": [
+            "coding",
+            "sports",
+            "gaming",
+            "cooking"
+        ]
+    },
+    {
+        "id": 41,
+        "email": "user41@example.com",
+        "age": 45,
+        "city": "Phoenix",
+        "latitude": -69.12590493129613,
+        "longitude": 102.79447636229185,
+        "interests": [
+            "sports",
+            "music",
+            "movies"
+        ]
+    },
+    {
+        "id": 42,
+        "email": "user42@example.com",
+        "age": 46,
+        "city": "Houston",
+        "latitude": 71.05772077010076,
+        "longitude": -164.03390084513708,
+        "interests": [
+            "sports",
+            "gaming",
+            "music",
+            "coding"
+        ]
+    },
+    {
+        "id": 43,
+        "email": "user43@example.com",
+        "age": 35,
+        "city": "Chicago",
+        "latitude": -59.08937284302297,
+        "longitude": 175.06195515021784,
+        "interests": [
+            "traveling",
+            "gaming",
+            "art"
+        ]
+    },
+    {
+        "id": 44,
+        "email": "user44@example.com",
+        "age": 34,
+        "city": "Houston",
+        "latitude": -89.69092619960747,
+        "longitude": -6.94362855851557,
+        "interests": [
+            "traveling"
+        ]
+    },
+    {
+        "id": 45,
+        "email": "user45@example.com",
+        "age": 25,
+        "city": "Houston",
+        "latitude": 49.994739257502204,
+        "longitude": 7.028394349063717,
+        "interests": [
+            "music",
+            "art"
+        ]
+    },
+    {
+        "id": 46,
+        "email": "user46@example.com",
+        "age": 29,
+        "city": "Houston",
+        "latitude": 62.58045595011788,
+        "longitude": 168.20847125748338,
+        "interests": [
+            "art",
+            "movies",
+            "cooking",
+            "sports",
+            "coding"
+        ]
+    },
+    {
+        "id": 47,
+        "email": "user47@example.com",
+        "age": 23,
+        "city": "New York",
+        "latitude": -13.081112244113683,
+        "longitude": 95.87675588664632,
+        "interests": [
+            "coding",
+            "art",
+            "reading",
+            "sports"
+        ]
+    },
+    {
+        "id": 48,
+        "email": "user48@example.com",
+        "age": 48,
+        "city": "Chicago",
+        "latitude": 60.357374145005,
+        "longitude": -151.36049016800908,
+        "interests": [
+            "photography",
+            "coding",
+            "art"
+        ]
+    },
+    {
+        "id": 49,
+        "email": "user49@example.com",
+        "age": 44,
+        "city": "Houston",
+        "latitude": -77.37251169028163,
+        "longitude": 69.80932679910583,
+        "interests": [
+            "coding"
+        ]
+    },
+    {
+        "id": 50,
+        "email": "user50@example.com",
+        "age": 19,
+        "city": "Chicago",
+        "latitude": 67.13767055910952,
+        "longitude": -2.7342001127698836,
+        "interests": [
+            "gaming"
+        ]
+    }
+]
