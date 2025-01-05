@@ -53,3 +53,6 @@ Include a brief report explaining your approach and any assumptions made.
 - FastAPI
 - SQLAlchemy
 - SQLite
+
+# The proposed solution is present in the Proposed_Solution.MD
+

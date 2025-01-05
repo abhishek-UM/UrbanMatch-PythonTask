@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Raj",
+    "age": 25,
+    "gender": "Male",
+    "email": "raj@gmail.com",
+    "city": "Chennai",
+    "interests": "Traveling, Coding",
+    "id": 1
+  },
+  {
+    "name": "Priya",
+    "age": 27,
+    "gender": "Female",
+    "email": "priya@gmail.com",
+    "city": "Bengaluru",
+    "interests": "Photography, Reading",
+    "id": 2
+  },
+  {
+    "name": "Ravi",
+    "age": 26,
+    "gender": "Male",
+    "email": "ravi@gmail.com",
+    "city": "Hyderabad",
+    "interests": "Fitness, Gaming",
+    "id": 3
+  },
+  {
+    "name": "Sneha",
+    "age": 29,
+    "gender": "Female",
+    "email": "sneha@gmail.com",
+    "city": "Mumbai",
+    "interests": "Yoga, Writing",
+    "id": 4
+  },
+  {
+    "name": "Karthik",
+    "age": 24,
+    "gender": "Male",
+    "email": "karthik@gmail.com",
+    "city": "Chennai",
+    "interests": "Music, Sports",
+    "id": 5
+  },
+  {
+    "name": "Anjali",
+    "age": 27,
+    "gender": "Female",
+    "email": "anjali@gmail.com",
+    "city": "Bengaluru",
+    "interests": "Dancing, Cooking",
+    "id": 6
+  },
+  {
+    "name": "Vikram",
+    "age": 25,
+    "gender": "Male",
+    "email": "vikram@gmail.com",
+    "city": "Bengaluru",
+    "interests": "Photography, Technology",
+    "id": 7
+  },
+  {
+    "name": "Shiva",
+    "age": 26,
+    "gender": "Male",
+    "email": "shiva@gmail.com",
+    "city": "Chennai",
+    "interests": "Traveling, Hiking",
+    "id": 9
+  },
+  {
+    "name": "Manoj",
+    "age": 29,
+    "gender": "Male",
+    "email": "manoj@gmail.com",
+    "city": "Hyderabad",
+    "interests": "Cycling, Coding",
+    "id": 10
+  },
+  {
+    "name": "Sreeja",
+    "age": 29,
+    "gender": "Female",
+    "email": "sreeja@gmail.com",
+    "city": "Bengaluru",
+    "interests": "Cooking, Gardening",
+    "id": 11
+  }
+]
