@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartbeat - Find Your Perfect Match</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe9e9 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.2);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        button.primary {
+            background: white;
+            color: #ff758c;
+        }
+
+        button.secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            backdrop-filter: blur(5px);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        .match-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .match-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 117, 140, 0.2);
+        }
+
+        .match-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 4px solid #ff758c;
+        }
+
+        .match-info {
+            padding: 25px;
+        }
+
+        .match-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .match-location {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .match-compatibility {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .match-bio {
+            color: #34495e;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .match-reasons {
+            background: #fff5f5;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .match-reasons h4 {
+            color: #ff758c;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .match-reasons ul {
+            list-style: none;
+        }
+
+        .match-reasons li {
+            color: #34495e;
+            font-size: 13px;
+            margin: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .match-reasons li:before {
+            content: "♥";
+            color: #ff758c;
+            position: absolute;
+            left: 0;
+        }
+
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .interest-tag {
+            background: #f8f9fa;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #ff758c;
+            border: 1px solid #ffe9e9;
+        }
+
+        .match-actions {
+            padding: 20px;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .match-actions button {
+            flex: 1;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: #ff758c;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .loading:after {
+            content: "♥";
+            display: inline-block;
+            animation: pulse 1s infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 40px;
+            color: #ff758c;
+            background: #fff5f5;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 1px solid #ffe9e9;
+        }
+
+        .retry-button {
+            margin-top: 15px;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .matches-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>♥ Heartbeat</h1>
+            <div class="header-buttons">
+                <button class="primary" onclick="loadMatches()">Find New Matches</button>
+                <button class="secondary" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        <div id="matches-container" class="matches-grid">
+            <div class="loading">Finding your soulmate</div>
+        </div>
+    </div>
+
+    <script>
+        const token = localStorage.getItem('token');
+        const userId = localStorage.getItem('userId');
+
+        if (!token || !userId) {
+            window.location.href = '/';
+        }
+
+        async function loadMatches() {
+            const container = document.getElementById('matches-container');
+            container.innerHTML = '<div class="loading">Finding your soulmate</div>';
+            
+            try {
+                const response = await fetch(`/api/matches/${userId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to load matches');
+                }
+
+                const data = await response.json();
+                displayMatches(data.matches);
+            } catch (error) {
+                console.error('Error loading matches:', error);
+                container.innerHTML = `
+                    <div class="error-message">
+                        <h3>Oh no! Cupid seems to be taking a break.</h3>
+                        <p>We couldn't load your matches right now.</p>
+                        <button class="retry-button" onclick="loadMatches()">Try Again</button>
+                    </div>
+                `;
+            }
+        }
+
+        function displayMatches(matches) {
+            const container = document.getElementById('matches-container');
+            
+            if (!matches || matches.length === 0) {
+                container.innerHTML = `
+                    <div class="error-message">
+                        <h3>Still Searching...</h3>
+                        <p>We haven't found your perfect match yet, but don't lose heart!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = matches.map(match => `
+                <div class="match-card">
+                    <img class="match-image" 
+                         src="${match.user.profile_image || 'https://via.placeholder.com/400x300'}" 
+                         alt="${match.user.name}'s profile picture">
+                    <div class="match-info">
+                        <div class="match-name">${match.user.name}</div>
+                        <div class="match-location">
+                            ${match.user.age ? `${match.user.age} years • ` : ''}${match.user.location}
+                        </div>
+                        <div class="match-compatibility">
+                            ${match.compatibility_score}% Match
+                        </div>
+                        <div class="match-bio">
+                            "${match.user.bio}"
+                        </div>
+                        ${match.match_reasons.length > 0 ? `
+                            <div class="match-reasons">
+                                <h4>Why You'll Click</h4>
+                                <ul>
+                                    ${match.match_reasons.map(reason => `
+                                        <li>${reason}</li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                        <div class="interests-list">
+                            ${match.common_interests.map(interest => 
+                                `<span class="interest-tag">${interest}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                    <div class="match-actions">
+                        <button class="primary" onclick="likeUser(${match.user.id})">♥ Like</button>
+                        <button class="secondary" onclick="skipUser(${match.user.id})">Skip</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function likeUser(matchId) {
+            alert(`You've shown interest in this match! We'll let them know.`);
+        }
+
+        function skipUser(matchId) {
+            alert(`No worries! There are plenty of fish in the sea.`);
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('userId');
+            window.location.href = '/';
+        }
+
+        loadMatches();
+    </script>
+</body>
+</html> 
