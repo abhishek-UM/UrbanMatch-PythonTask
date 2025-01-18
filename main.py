@@ -45,28 +45,39 @@ async def update_user(user_id: int, user: schemas.UserUpdate, db: Session = Depe
     db.refresh(db_user)
     return db_user
 
+from typing import Optional
+
 @app.get("/users/{user_id}/matches", response_model=list[schemas.User])
-def find_potential_matches(user_id: int, db: Session = Depends(get_db)):
+def find_potential_matches(
+    user_id: int,
+    min_age: Optional[int] = None,
+    max_age: Optional[int] = None,
+    city: Optional[str] = None,
+    db: Session = Depends(get_db),
+):
     user = db.query(models.User).filter(models.User.id == user_id).first()
-    if user is None:
+    if not user:
         raise HTTPException(status_code=404, detail="User not found")
 
     opposite_gender = "m" if user.gender == "f" else "f"
 
+    if min_age is None:
+        min_age = user.age - 2
+    if max_age is None:
+        max_age = user.age + 2
 
-    matches = (
-        db.query(models.User)
-        .filter(
-            models.User.gender == opposite_gender,
-            models.User.age >= user.age - 2,
-            models.User.age <= user.age + 2,
-            models.User.id != user_id  
-        )
-        .all()
+
+    query = db.query(models.User).filter(
+        models.User.gender == opposite_gender,
+        models.User.age >= min_age,
+        models.User.age <= max_age,
     )
 
-    return matches
+    if city:
+        query = query.filter(models.User.city == city)
 
+    matches = query.all()
+    return matches
 
 @app.delete("/users/{user_id}", response_model=dict)
 async def delete_user(user_id: int, db: Session = Depends(get_db)):
