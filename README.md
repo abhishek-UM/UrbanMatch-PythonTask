@@ -37,11 +37,7 @@ A modern dating web application powered by AI matching algorithms. Heartbeat hel
 - `profile.html` - User profile creation and editing
 - `index.html` - Main application interface showing matches
 
-# Heartbeat-Dating
 
-Heartbeat-Dating is a modern dating platform built using **FastAPI** with an AI-powered matching algorithm. This application aims to provide users with a seamless experience for finding compatible matches based on their profiles and preferences.
-
----
 
 ## Features
 
