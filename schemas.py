@@ -7,7 +7,7 @@ class UserBase(BaseModel):
     gender: str
     email: EmailStr
     city: str
-    interests: str
+    interests: List[str]
 
 class UserCreate(UserBase):
     pass
@@ -18,7 +18,7 @@ class UserUpdate(BaseModel):
     gender: Optional[str] = None
     email: Optional[EmailStr] = None
     city: Optional[str] = None
-    interests: Optional[str] = None
+    interests: Optional[List[str]] = None
 
 class User(UserBase):
     id: int

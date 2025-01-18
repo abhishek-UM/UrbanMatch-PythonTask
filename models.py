@@ -10,5 +10,5 @@ class User(Base):
     gender = Column(String(1))
     email = Column(String(40), unique=True, index=True)
     city = Column(String(30), index=True)
-    interests = Column(String(20))
+    interests = Column(ARRAY(String(20)))
 
