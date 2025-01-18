@@ -22,20 +22,19 @@ A modern dating web application powered by AI matching algorithms. Heartbeat hel
 - **Authentication**: JWT tokens
 - **Security**: Bcrypt encryption
 
-The application will be running at: `http://localhost:8000`
 
-### Test Account
-- Email: test@example.com
-- Password: test123
+## File Descriptions
 
-## Project Structure 📁
-heartbeat-dating/
-├── main.py # FastAPI application
-├── database.py # Database models
-├── ai_matcher.py # Matching algorithm
-├── reset_db.py # Database initialization
-├── requirements.txt # Python dependencies
-└── templates/
-├── login.html # Login/Signup page
-├── profile.html # Profile setup page
-└── index.html # Main matches page
+### Backend Files
+- `main.py` - Core FastAPI application with all routes and endpoints
+- `database.py` - SQLAlchemy models and database configuration
+- `ai_matcher.py` - AI-powered matching algorithm implementation
+- `reset_db.py` - Database initialization and reset script
+- `requirements.txt` - List of Python package dependencies
+
+### Frontend Templates
+- `login.html` - User authentication interface
+- `profile.html` - User profile creation and editing
+- `index.html` - Main application interface showing matches
+
+
