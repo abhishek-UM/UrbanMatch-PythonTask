@@ -94,7 +94,7 @@ heartbeat-dating/
 5. Open the application in your browser at [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
 ---
-#LayOut:-
+# LayOut:-
 ![Homepage Screenshot](https://github.com/AaryanAnand10/UrbanMatch-PythonTask/blob/main/images/MaIn.png)
 
 
