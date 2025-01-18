@@ -3,7 +3,7 @@
 
 A modern dating web application powered by AI matching algorithms. Heartbeat helps users find compatible matches based on shared interests, age compatibility, and location.
 
-![Heartbeat Dating App](screenshot.png)
+
 
 ## Features
 
