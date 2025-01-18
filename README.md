@@ -22,3 +22,20 @@ A modern dating web application powered by AI matching algorithms. Heartbeat hel
 - **Authentication**: JWT tokens
 - **Security**: Bcrypt encryption
 
+The application will be running at: `http://localhost:8000`
+
+### Test Account
+- Email: test@example.com
+- Password: test123
+
+## Project Structure 📁
+heartbeat-dating/
+├── main.py # FastAPI application
+├── database.py # Database models
+├── ai_matcher.py # Matching algorithm
+├── reset_db.py # Database initialization
+├── requirements.txt # Python dependencies
+└── templates/
+├── login.html # Login/Signup page
+├── profile.html # Profile setup page
+└── index.html # Main matches page
