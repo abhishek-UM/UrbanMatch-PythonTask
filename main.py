@@ -37,13 +37,35 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
 @app.put("/users/{user_id}", response_model=schemas.User)
 async def update_user(user_id: int, user: schemas.UserUpdate, db: Session = Depends(get_db)):
     db_user = db.query(models.User).filter(models.User.id == user_id).first()
-    if not db_user:
+    if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     for key, value in user.dict(exclude_unset=True).items():
         setattr(db_user, key, value)
     db.commit()
     db.refresh(db_user)
     return db_user
+
+@app.get("/users/{user_id}/matches", response_model=list[schemas.User])
+def find_potential_matches(user_id: int, db: Session = Depends(get_db)):
+    user = db.query(models.User).filter(models.User.id == user_id).first()
+    if user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    opposite_gender = "m" if user.gender == "f" else "f"
+
+
+    matches = (
+        db.query(models.User)
+        .filter(
+            models.User.gender == opposite_gender,
+            models.User.age >= user.age - 2,
+            models.User.age <= user.age + 2,
+            models.User.id != user_id  
+        )
+        .all()
+    )
+
+    return matches
 
 
 @app.delete("/users/{user_id}", response_model=dict)
