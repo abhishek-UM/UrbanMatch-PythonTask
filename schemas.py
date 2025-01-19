@@ -7,7 +7,7 @@ class UserBase(BaseModel):
     gender: str
     email: EmailStr
     city: str
-    interests: List[str]
+    interests: str
 
 class UserCreate(UserBase):
     pass
@@ -18,10 +18,15 @@ class UserUpdate(BaseModel):
     gender: Optional[str] = None
     email: Optional[EmailStr] = None
     city: Optional[str] = None
-    interests: Optional[List[str]] = None
+    interests: Optional[str] = None
 
 class User(UserBase):
     id: int
 
     class Config:
         orm_mode = True
+
+class MatchRequirements(BaseModel):
+    min_age: Optional[int] = None
+    max_age: Optional[int] = None
+    city: Optional[str] = None

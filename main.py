@@ -48,23 +48,22 @@ async def update_user(user_id: int, user: schemas.UserUpdate, db: Session = Depe
 from typing import Optional
 
 @app.get("/users/{user_id}/matches", response_model=list[schemas.User])
-def find_potential_matches(
-    user_id: int,
-    min_age: Optional[int] = None,
-    max_age: Optional[int] = None,
-    city: Optional[str] = None,
-    db: Session = Depends(get_db),
-):
+def find_potential_matches(user_id: int, requirements: schemas.MatchRequirements, db: Session = Depends(get_db)):
     user = db.query(models.User).filter(models.User.id == user_id).first()
-    if not user:
+    if user is None:
         raise HTTPException(status_code=404, detail="User not found")
 
     opposite_gender = "m" if user.gender == "f" else "f"
 
-    if min_age is None:
+    if requirements.min_age is None:
         min_age = user.age - 2
-    if max_age is None:
+    else:
+        min_age = int(requirements.min_age)
+    
+    if requirements.max_age is None:
         max_age = user.age + 2
+    else:
+        max_age = int(requirements.max_age)
 
 
     query = db.query(models.User).filter(
@@ -73,8 +72,8 @@ def find_potential_matches(
         models.User.age <= max_age,
     )
 
-    if city:
-        query = query.filter(models.User.city == city)
+    if requirements.city:
+        query = query.filter(models.User.city == requirements.city)
 
     matches = query.all()
     return matches
@@ -82,7 +81,7 @@ def find_potential_matches(
 @app.delete("/users/{user_id}", response_model=dict)
 async def delete_user(user_id: int, db: Session = Depends(get_db)):
     db_user = db.query(models.User).filter(models.User.id == user_id).first()
-    if not db_user:
+    if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     db.delete(db_user)
     db.commit()
