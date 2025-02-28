@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Profile - Heartbeat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe9e9 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.2);
+            padding: 40px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #ff758c;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .profile-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        input, select, textarea {
+            padding: 12px;
+            border: 2px solid #ffe9e9;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #ff758c;
+        }
+
+        .interests-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .interest-tag {
+            background: #fff5f5;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .interest-tag.selected {
+            background: #ff758c;
+            color: white;
+        }
+
+        .interest-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.3);
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .success-message {
+            color: #27ae60;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Complete Your Profile ♥</h1>
+        <form class="profile-form" id="profileForm">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="18" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" placeholder="City, Country" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bio">About Me</label>
+                <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Interests</label>
+                <div class="interests-container" id="interestsContainer">
+                    <!-- Interests will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <button type="submit">Find My Matches ♥</button>
+        </form>
+    </div>
+
+    <script>
+        const interests = [
+            'Reading', 'Travel', 'Music', 'Movies', 'Sports', 'Cooking', 
+            'Art', 'Photography', 'Dancing', 'Hiking', 'Gaming', 'Yoga', 
+            'Fashion', 'Technology', 'Food', 'Fitness', 'Writing', 'Animals',
+            'Nature', 'Science', 'History', 'Languages', 'Theater', 'Meditation'
+        ];
+
+        const selectedInterests = new Set();
+
+        function populateInterests() {
+            const container = document.getElementById('interestsContainer');
+            interests.forEach(interest => {
+                const tag = document.createElement('div');
+                tag.className = 'interest-tag';
+                tag.textContent = interest;
+                tag.onclick = () => toggleInterest(tag, interest);
+                container.appendChild(tag);
+            });
+        }
+
+        function toggleInterest(element, interest) {
+            if (selectedInterests.has(interest)) {
+                selectedInterests.delete(interest);
+                element.classList.remove('selected');
+            } else if (selectedInterests.size < 5) {
+                selectedInterests.add(interest);
+                element.classList.add('selected');
+            } else {
+                alert('You can select up to 5 interests');
+            }
+        }
+
+        document.getElementById('profileForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = {
+                age: document.getElementById('age').value,
+                location: document.getElementById('location').value,
+                bio: document.getElementById('bio').value,
+                interests: Array.from(selectedInterests)
+            };
+
+            try {
+                const response = await fetch('/api/update-profile', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    window.location.href = '/app';
+                } else {
+                    throw new Error('Failed to update profile');
+                }
+            } catch (error) {
+                alert('Error updating profile. Please try again.');
+            }
+        });
+
+        populateInterests();
+    </script>
+</body>
+</html> 
