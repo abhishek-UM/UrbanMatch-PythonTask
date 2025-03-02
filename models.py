@@ -1,5 +1,7 @@
 from sqlalchemy import Column, Integer, String, ARRAY
-from database import Base
+from database import Base, engine
+from sqlalchemy.types import JSON
+
 
 class User(Base):
     __tablename__ = "users"
@@ -10,5 +12,9 @@ class User(Base):
     gender = Column(String)
     email = Column(String, unique=True, index=True)
     city = Column(String, index=True)
-    interests = Column(ARRAY(String))
+    interests = Column(JSON)
+
+# used to create tables in database
+
+# Base.metadata.createAll(bird=engine)
 
