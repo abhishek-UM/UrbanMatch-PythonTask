@@ -22,20 +22,19 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail="Email already registered")
 
     db_user = models.User(
-        **user.model_dump(exclude={"interests"}),  # Use model_dump() instead of dict()
-        interests=json.dumps(user.interests)  # Convert list to JSON
+        **user.model_dump(exclude={"interests"}),  
+        interests=json.dumps(user.interests)  
     )
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
-    db_user.interests = json.loads(db_user.interests)  # Convert back to list for response
+    db_user.interests = json.loads(db_user.interests)  
     return db_user
 
 @app.get("/users/", response_model=list[schemas.User])
 def read_users(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     users = db.query(models.User).filter(models.User.is_deleted == False).offset(skip).limit(limit).all()
     
-    # Ensure JSON deserialization for interests field
     for user in users:
         user.interests = json.loads(user.interests) if user.interests else []
     
@@ -47,7 +46,6 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
     if user is None:
         raise HTTPException(status_code=404, detail="User not found")
     
-    # Ensure JSON deserialization for interests field
     user.interests = json.loads(user.interests) if user.interests else []
     
     return user
@@ -77,13 +75,13 @@ def update_user(user_id: int, user_update: schemas.UserUpdate, db: Session = Dep
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
 
-    update_data = user_update.model_dump(exclude_unset=True)  # Ensure correct Pydantic usage
+    update_data = user_update.model_dump(exclude_unset=True)  
 
     if "email" in update_data and not schemas.validate_email(update_data["email"]):
         raise HTTPException(status_code=400, detail="Invalid email format")
 
     if "interests" in update_data:
-        update_data["interests"] = json.dumps(update_data["interests"])  # Convert list to JSON
+        update_data["interests"] = json.dumps(update_data["interests"])  
 
     for key, value in update_data.items():
         setattr(db_user, key, value)
@@ -99,6 +97,6 @@ def delete_user(user_id: int, db: Session = Depends(get_db)):
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
 
-    db_user.is_deleted = True  # Soft delete
+    db_user.is_deleted = True  
     db.commit()
     return {"message": "User marked as deleted (soft delete)."}

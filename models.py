@@ -11,7 +11,7 @@ class User(Base):
     gender = Column(String)
     email = Column(String, unique=True, index=True)
     city = Column(String, index=True)
-    interests = Column(Text, nullable=True)  # Store as JSON text
+    interests = Column(Text, nullable=True) 
     is_deleted = Column(Boolean, default=False)
 
     def set_interests(self, interests_list):
